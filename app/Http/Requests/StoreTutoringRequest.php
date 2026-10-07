@@ -23,7 +23,10 @@ class StoreTutoringRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'student_name' => 'required|string|max:255',
+            'station_number' => 'required|string|max:255',
+            'topic' => 'required|string|max:255',
+            'issue_summary' => 'required|string',
         ];
     }
 }
