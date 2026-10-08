@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function FormSection({ formData, handleInputChange, handleSubmit, submitting }) {
+export default function FormSection({ formData, handleInputChange, handleSubmit, submitting, submissionError }) {
     return (
         <div className="lg:col-span-4" id="submit">
             <div className="bg-purple-300 rounded-2xl shadow-xl overflow-hidden border border-gray-100 sticky top-24">
@@ -31,7 +31,14 @@ export default function FormSection({ formData, handleInputChange, handleSubmit,
                         <label className="block text-sm font-semibold text-gray-700 mb-1">Issue Summary</label>
                         <textarea required name="issue_summary" value={formData.issue_summary} onChange={handleInputChange} rows="3" className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-gray-900" placeholder="Briefly describe your problem..."></textarea>
                     </div>
+
                     <button disabled={submitting} type="submit" className="w-full py-3 tracking-wider px-4 bg-violet-600 hover:bg-violet-800 disabled:bg-violet-400 text-white font-bold rounded-lg shadow-md transition-colors">
+
+                    {submissionError && (
+                        <p role="alert" className="text-sm text-red-600">{submissionError}</p>
+                    )}
+                    <button disabled={submitting} type="submit" className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold rounded-lg shadow-md transition-colors">
+>>>>>>> d800ff7cae53535b6dc2910865ef7df19c08599a
                         {submitting ? 'Submitting...' : 'Submit to Queue'}
                     </button>
                 </form>

@@ -13,21 +13,20 @@ class TutoringController extends Controller
         return response()->json(Tutoring::orderBy('created_at', 'desc')->get());
     }
 
-    public function store(Request $request)
+    public function store(StoreTutoringRequest $request)
     {
         $validated = $request->validated();
-        
-        $tutoringRequest = Tutoring::create($validated);
+        $tutoringRequest = Tutoring::create([
+            ...$validated,
+            'status' => 'Pending',
+        ]);
 
         return response()->json($tutoringRequest, 201);
     }
 
-    public function update(Request $request, Tutoring $tutoringRequest)
+    public function update(UpdateTutoringRequest $request, Tutoring $tutoringRequest)
     {
-        $validated = $request->validate([
-            'status' => 'required|string|in:Pending,Resolved',
-        ]);
-
+        $validated = $request->validated();
         $tutoringRequest->update($validated);
 
         return response()->json($tutoringRequest);

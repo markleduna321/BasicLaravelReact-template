@@ -16,6 +16,7 @@ export default function CampusHelpdeskSPA() {
         issue_summary: ''
     });
     const [submitting, setSubmitting] = useState(false);
+    const [submissionError, setSubmissionError] = useState('');
 
     const pendingCount = requests.filter(r => r.status === 'Pending').length;
 
@@ -43,6 +44,7 @@ export default function CampusHelpdeskSPA() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
+        setSubmissionError('');
         try {
             const res = await fetch('/api/tutoring-requests', {
                 method: 'POST',
@@ -52,17 +54,22 @@ export default function CampusHelpdeskSPA() {
                 },
                 body: JSON.stringify(formData)
             });
-            if (res.ok) {
-                setFormData({
-                    student_name: '',
-                    station_number: '',
-                    topic: 'HTML/CSS',
-                    issue_summary: ''
-                });
-                fetchRequests();
+            const result = await res.json();
+            if (!res.ok) {
+                setSubmissionError(result.message || 'Unable to submit your ticket. Please try again.');
+                return;
             }
+
+            setFormData({
+                student_name: '',
+                station_number: '',
+                topic: 'HTML/CSS',
+                issue_summary: ''
+            });
+            fetchRequests();
         } catch (error) {
             console.error('Submission failed', error);
+            setSubmissionError('Unable to submit your ticket. Please try again.');
         } finally {
             setSubmitting(false);
         }
@@ -119,6 +126,7 @@ export default function CampusHelpdeskSPA() {
                             handleInputChange={handleInputChange} 
                             handleSubmit={handleSubmit} 
                             submitting={submitting} 
+                            submissionError={submissionError}
                         />
                         
                         <div className="lg:col-span-8">
