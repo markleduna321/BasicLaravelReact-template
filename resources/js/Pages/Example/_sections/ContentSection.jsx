@@ -17,9 +17,11 @@ export default function ContentSection({ requests, handleToggleStatus }) {
     }, [requests, search, statusFilter, topicFilter]);
 
     return (
-        <div className="w-full flex flex-col h-full bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-6 lg:p-8">
+        <div className="w-full flex flex-col h-full bg-purple-300 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-6 lg:p-8">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-4">
-                <h2 className="text-3xl font-black text-gray-900 tracking-tight">All Queue Tickets</h2>
+                <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+                    All Queue Tickets
+                </h2>
                 
                 <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
                     <div className="relative flex-grow lg:flex-grow-0">
@@ -36,7 +38,7 @@ export default function ContentSection({ requests, handleToggleStatus }) {
                     <select 
                         value={statusFilter} 
                         onChange={(e) => setStatusFilter(e.target.value)}
-                        className="py-2.5 px-4 bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-xl text-sm font-semibold text-gray-700 transition-all cursor-pointer"
+                        className="py-2.5 bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-xl text-sm font-semibold text-gray-700 transition-all cursor-pointer"
                     >
                         <option value="All">All Statuses</option>
                         <option value="Pending">Pending</option>
@@ -46,7 +48,7 @@ export default function ContentSection({ requests, handleToggleStatus }) {
                     <select 
                         value={topicFilter} 
                         onChange={(e) => setTopicFilter(e.target.value)}
-                        className="py-2.5 px-4 bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-xl text-sm font-semibold text-gray-700 transition-all cursor-pointer"
+                        className="py-2.5 bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-xl text-sm font-semibold text-gray-700 transition-all cursor-pointer"
                     >
                         <option value="All">All Topics</option>
                         <option value="HTML/CSS">HTML/CSS</option>

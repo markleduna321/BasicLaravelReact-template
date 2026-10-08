@@ -5,13 +5,21 @@ export default function NavSection({ pendingCount }) {
         <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 shadow-sm border-b border-gray-200/60 transition-all">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 tracking-tight">Code Assist</span>
+                    <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600 tracking-tight">
+                        Code Assist
+                    </span>
                 </div>
                 <div className="flex items-center gap-6">
                     <nav className="hidden md:flex gap-6">
-                        <a href="#hero" className="text-sm font-bold text-gray-600 hover:text-blue-600 transition-colors uppercase tracking-wider">Home</a>
-                        <a href="#table-queue" className="text-sm font-bold text-gray-600 hover:text-blue-600 transition-colors uppercase tracking-wider">All Tickets</a>
-                        <a href="#submit" className="text-sm font-bold text-gray-600 hover:text-blue-600 transition-colors uppercase tracking-wider">Submit & Queue</a>
+                        <a href="#hero" className="text-sm font-bold text-gray-600 hover:-translate-y-1 hover:text-violet-600 transition-all duration-500 transform:scale-115 transition-colors uppercase tracking-wider">
+                            Home
+                        </a>
+                        <a href="#table-queue" className="text-sm font-bold text-gray-600 hover:-translate-y-1 transition-all duration-500 hover:text-violet-600 transform:scale-115 transition-colors uppercase tracking-wider">
+                            Tickets
+                        </a>
+                        <a href="#submit" className="text-sm font-bold text-gray-600 hover:text-violet-600 hover:-translate-y-1 duration-500 transition-all transform:scale-115 transition-colors uppercase tracking-wider">
+                            Queue
+                        </a>
                     </nav>
                     <div className="flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-900 px-4 py-1.5 rounded-full font-bold text-sm shadow-sm border border-amber-200/50">
                         <span className="relative flex h-3 w-3">
