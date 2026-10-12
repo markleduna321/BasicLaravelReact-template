@@ -23,7 +23,6 @@ export default function AuthenticatedLayout({ header, children }) {
                                 </Link>
                             </div>
 
-                            {/* Navigation Links */}
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route('dashboard')}
@@ -31,15 +30,13 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Dashboard
                                 </NavLink>
-
-                                <NavLink
-                                    href={route('products')}
-                                    active={route().current('products')}
+                                 <NavLink
+                                    href={route('Products')}
+                                    active={route().current('Products')}
                                 >
                                     Products
                                 </NavLink>
                             </div>
-                            {/* Navigation Links End */}
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
